@@ -34,4 +34,10 @@ class Users extends Controller
     public function show($id) {
       return User::find($id);
     }
+
+    // seed database
+    public function seed($num) {
+      // populate database with users
+      // populate database with friendships
+    }
 }
