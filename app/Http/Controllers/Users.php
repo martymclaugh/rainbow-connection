@@ -9,8 +9,10 @@ class Users extends Controller
     //display list of all users
     public function index($id = null) {
       if ($id == null) {
+        // if there is no id in the route return all users
         return User::orderBy('id', 'asc')->get();
       } else {
+        // otherwise show the specific user
         return $this->show($id)
       }
     }
@@ -26,5 +28,10 @@ class Users extends Controller
       $user->save();
 
       return 'User successfully created with id of ' . $user->id;
+    }
+
+    // display specific user
+    public function show($id) {
+      return User::find($id);
     }
 }
